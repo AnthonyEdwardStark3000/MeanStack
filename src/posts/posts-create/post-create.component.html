@@ -1,0 +1,34 @@
+<p style="text-align: center; font-size: large; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Create post custom created component</p>
+<!--% <mat-card>
+<mat-form-field>
+  <input matInput type="text" placeholder="Enter your Title" [(ngModel)]="usertitle">
+</mat-form-field>
+  <mat-form-field>
+     -->
+  <!-- <textarea id="userinput" cols="30" rows="10"[value]="usersPost"></textarea> -->
+  <!--% <textarea matInput rows="4" placeholder="Enter your Content"  [(ngModel)]="usercontent"></textarea>
+</mat-form-field>
+<button mat-raised-button color="accent" (click)="onAddPost()">Save</button>
+</mat-card> intitally done now doing with ngForms-->
+
+<mat-card>
+
+<form (submit)="onAddPost(postForm)" #postForm="ngForm"> <!--using form--> <!--Calling an method during the form submission-->
+    <mat-form-field>
+    <input matInput type="text" placeholder="Enter your Title"  name="title" ngModel required minlength="4" #title="ngModel">
+  <mat-error *ngIf="title.invalid"> Please enter an valid Title to continue.</mat-error> <!--In the above line we have created an local variable and we are using it here as an reference-->
+  </mat-form-field>
+    <mat-form-field>
+    <!-- <textarea id="userinput" cols="30" rows="10"[value]="usersPost"></textarea> -->
+    <textarea matInput rows="4" placeholder="Enter your Content" name="content" ngModel required #content="ngModel"></textarea>
+  <mat-error *ngIf="content.invalid">Please enter an valid Content !.</mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="accent" type="submit">Save</button>
+  <!--i want to call the fucntion indirectly (i.e) during the form submission-->
+</form> <!--using form-->
+
+
+  </mat-card>
+
+
+
